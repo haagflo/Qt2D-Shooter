@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ir_begin.wav</file>
+        <file>background.png</file>
+        <file>fireball.png</file>
+        <file>shuttle.png</file>
+    </qresource>
+</RCC>
