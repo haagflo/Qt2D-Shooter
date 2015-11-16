@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>game.qml</file>
+        <file>highscore.qml</file>
+        <file>background.png</file>
+        <file>fireball.png</file>
+        <file>fireball.qml</file>
+        <file>shuttle.png</file>
+        <file>shuttle.qml</file>
+    </qresource>
+</RCC>
