@@ -44,6 +44,7 @@
 
 
 #include "asteroid.h"
+#include "shuttle.h"
 
 int main(int argc, char **argv) {
     QApplication app(argc, argv);
@@ -53,6 +54,9 @@ int main(int argc, char **argv) {
     scene.setSceneRect(-300,-300,600,600);
 
     scene.setItemIndexMethod(QGraphicsScene::NoIndex);
+    Shuttle *shuttle = new Shuttle();
+    scene.addItem(shuttle);
+
 
     //ToDo: update() oder paint() methode von superklasse
     //      in der dann asteroid shooter zufällig und regelmäßig
@@ -64,17 +68,20 @@ int main(int argc, char **argv) {
         scene.addItem(asteroid);
     }
 
+    scene.setFocusItem(shuttle);
+
     QGraphicsView view(&scene);
     view.setRenderHint(QPainter::Antialiasing);
     view.setBackgroundBrush(QPixmap(":/images/cheese.jpg"));
     view.setFixedSize(600,600);
     view.setCacheMode(QGraphicsView::CacheBackground);
-
+    view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     //Ich glaube daher kamen die Streifen(weil außerhalb des BoundingRect nicht neugezeichnet wurde)
     //view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
+    //Die Variante zeichnet dafür langsamer..
     view.setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
 
-    //Die Variante zeichnet dafür langsamer..
     view.setWindowTitle(QT_TRANSLATE_NOOP(QGraphicsView, "Qt2D-SpaceShooter"));
     view.show();
 

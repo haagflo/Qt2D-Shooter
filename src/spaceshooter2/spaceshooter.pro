@@ -8,13 +8,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     asteroidshooter.cpp \
-    asteroid.cpp
+    asteroid.cpp \
+    shuttle.cpp
 
 HEADERS += \
     asteroidshooter.h \
-    asteroid.h
-
-DISTFILES +=
+    asteroid.h \
+    shuttle.h
 
 RESOURCES += qml.qrc
 
