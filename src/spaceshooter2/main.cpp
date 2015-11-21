@@ -78,9 +78,10 @@ int main(int argc, char **argv) {
     view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     //Ich glaube daher kamen die Streifen(weil außerhalb des BoundingRect nicht neugezeichnet wurde)
-    //view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
+    view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
+
     //Die Variante zeichnet dafür langsamer..
-    view.setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
+    //view.setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
 
     view.setWindowTitle(QT_TRANSLATE_NOOP(QGraphicsView, "Qt2D-SpaceShooter"));
     view.show();

@@ -1,18 +1,12 @@
 #include "shuttle.h"
+#include "shotsingle.h"
+#include "shotdouble.h"
 
-#include <QGraphicsScene>
-#include <QPainter>
-#include <QEvent>
-#include <QKeyEvent>
-#include <QWidget>
-#include <math.h>
-#include <QtMath>
-
-Shuttle::Shuttle()
+Shuttle::Shuttle() : speed(10)
 {
     //Wird benötigt um KeyEvents zu erhalten!
     setFlag(QGraphicsItem::ItemIsFocusable);
-    speed = 10;
+    setShotStrategy(new ShotSingle(this));
 }
 
 //Dieses Rechteck wird verwendet um Herauszufinden
@@ -37,10 +31,30 @@ void Shuttle::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget
     painter->drawImage(QRectF(0,0,60,60), image);
 }
 
+
 //Lösung um Keyboard Inputs ohne einmaligem "Stop" auszuführen:
 //https://forum.qt.io/topic/28327/big-issue-with-qt-key-inputs-for-gaming/4
 //http://doc.qt.io/qt-5.5/eventsandfilters.html
 void Shuttle::keyPressEvent(QKeyEvent *event){
+    if(event->key() == Qt::Key_D){
+        setShotStrategy(new ShotDouble(this));
+    }
+    if(event->key() == Qt::Key_S){
+        setShotStrategy(new ShotSingle(this));
+    }
+    //TODO: Remove ;) Or keep it just for Fun.
+    if(event->key() == Qt::Key_Plus){
+        shotstrategy->increaseReloadSpeed(10);
+    }
+    if(event->key() == Qt::Key_Minus){
+        shotstrategy->increaseReloadSpeed(-10);
+    }
+    if(event->key() == Qt::Key_O){
+        shotstrategy->increaseShotSpeed(2);
+    }
+    if(event->key() == Qt::Key_L){
+        shotstrategy->increaseShotSpeed(-2);
+    }
     keys[event->key()] = true;
 }
 
@@ -58,10 +72,10 @@ void Shuttle::advance(int step) {
 
         //Handling der verschiedenen KeyEvents
         if (keys[Qt::Key_Left]) {
-            setRotation(qRound(rotation() - 10) % 360);
+            setRotation(qRound(rotation() - speed) % 360);
         }
         if (keys[Qt::Key_Right]) {
-            setRotation(qRound(rotation() + 10) % 360);
+            setRotation(qRound(rotation() + speed) % 360);
         }
         if (keys[Qt::Key_Up]) {
             qreal nextX = x() + qSin(rotation() * M_PI/180) * speed;
@@ -74,6 +88,9 @@ void Shuttle::advance(int step) {
             qreal nextY = y() + qCos(rotation() * M_PI/180) * speed;
 
             setPos(QPointF(nextX, nextY));
+        }
+        if(keys[Qt::Key_Space]){
+            shotstrategy->shoot();
         }
 
 }

@@ -41,11 +41,12 @@
 #ifndef ASTROID_H
 #define ASTROID_H
 
-#include <QGraphicsItem>
+#include "linearmovingitems.h"
 
-class Asteroid : public QGraphicsItem
+class Asteroid : public LinearMovingItems
 {
 public:
+
     Asteroid();
     Asteroid(qreal rot, qreal spd);
 
@@ -55,13 +56,10 @@ public:
                QWidget *widget) Q_DECL_OVERRIDE;
 
 protected:
-    void advance(int step) Q_DECL_OVERRIDE;
-    void deleteIfOutlier();
 
 
 private:
-    qreal speed;
-    QColor color;
+
 };
 
 #endif
