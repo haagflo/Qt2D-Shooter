@@ -47,11 +47,14 @@
 #include "shuttle.h"
 
 int main(int argc, char **argv) {
+    int windowWidth = 600;
+    int windowHeight = 600;
+
     QApplication app(argc, argv);
     qsrand(QTime(0, 0, 0).secsTo(QTime::currentTime()));
 
     QGraphicsScene scene;
-    scene.setSceneRect(-300,-300,600,600);
+    scene.setSceneRect(-windowWidth/2,-windowHeight/2,windowWidth,windowHeight);
 
     scene.setItemIndexMethod(QGraphicsScene::NoIndex);
     Shuttle *shuttle = new Shuttle();
@@ -72,8 +75,8 @@ int main(int argc, char **argv) {
 
     QGraphicsView view(&scene);
     view.setRenderHint(QPainter::Antialiasing);
-    view.setBackgroundBrush(QPixmap(":/images/cheese.jpg"));
-    view.setFixedSize(600,600);
+    view.setBackgroundBrush(QPixmap(":/images/backgroundSpace.png"));
+    view.setFixedSize(windowWidth,windowHeight);
     view.setCacheMode(QGraphicsView::CacheBackground);
     view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

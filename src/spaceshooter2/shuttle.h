@@ -33,10 +33,8 @@ private:
     int speed;
     QMap<int, bool> keys;
     ShotStrategy* shotstrategy;
-
-signals:
-
-public slots:
+    int width = 40;
+    int height = 50;
 };
 
 #endif // SHUTTLE_H

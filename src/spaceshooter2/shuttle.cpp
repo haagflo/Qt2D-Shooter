@@ -13,22 +13,22 @@ Shuttle::Shuttle() : speed(10)
 //welcher Bereich von der GraphicsScene neu gezeichnet werden muss.
 QRectF Shuttle::boundingRect() const
 {
-    return QRectF(0, 0, 60, 60);
+    return QRectF(0, 0, width, height);
 }
 
 //Dieses Shape wird zur Kollisionskontrolle verwendet!
 QPainterPath Shuttle::shape() const
 {
     QPainterPath path;
-    path.addRect(0,0, 60, 60);
+    path.addRect(0,0, width, height);
     return path;
 }
 
 //Wird von GraphicsScene aufgerufen um das Objekt zu zeichnen
 void Shuttle::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
-    QImage image(":/images/shuttle.png");
-    painter->drawImage(QRectF(0,0,60,60), image);
+    QImage image(":/images/shuttle6.png");
+    painter->drawImage(QRectF(0,0,width,height), image);
 }
 
 
