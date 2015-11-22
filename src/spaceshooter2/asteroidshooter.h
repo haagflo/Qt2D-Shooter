@@ -7,15 +7,17 @@ class AsteroidShooter {
 
 public:
     AsteroidShooter();
-    AsteroidShooter(int xPos, int yPos, int ang, int spd);
+    AsteroidShooter(int xPos, int yPos, int ang, int spd, QGraphicsScene* scene);
+    ~AsteroidShooter() {}
 
-    Asteroid* generateAsteroid();
+    void shootAsteroid();
 
 private:
     int x;
     int y;
     int angle;
     int speed;
+    QGraphicsScene* scene;
 };
 
 #endif

@@ -5,8 +5,7 @@
   Asteoriden oder Schüsse, evtl. auch Items deren Bewegung durch eine
   Geschwindigkeit und durch eine Rotationsrichtung beschrieben werden können.
 */
-LinearMovingItems::LinearMovingItems()
-{
+LinearMovingItems::LinearMovingItems() {
     setTransformOriginPoint(boundingRect().width()/2, boundingRect().height()/2);
     setRotation(0);
     speed = 5;

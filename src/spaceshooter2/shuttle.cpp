@@ -68,7 +68,7 @@ void Shuttle::advance(int step) {
 
         //wird benötigt um um das Zentrum des Rechtecks zu Rotieren
         //(Standard mäßig wird an linker oberer Ecke rotiert..)
-        setTransformOriginPoint(QPoint(30,30));
+        setTransformOriginPoint(QPoint(width/2,height/2));
 
         //Handling der verschiedenen KeyEvents
         if (keys[Qt::Key_Left]) {

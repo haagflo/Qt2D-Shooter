@@ -1,13 +1,16 @@
 #include "asteroidshooter.h"
 
-
-AsteroidShooter::AsteroidShooter(int x, int y, int ang, int spd) :
-x(x), y(y), angle(ang), speed(spd) {
+AsteroidShooter::AsteroidShooter() {
 
 }
 
-Asteroid* AsteroidShooter::generateAsteroid() {
-    Asteroid *a = new Asteroid(angle, speed);
+AsteroidShooter::AsteroidShooter(int x, int y, int ang, int spd, QGraphicsScene* scene) :
+x(x), y(y), angle(ang), speed(spd), scene(scene) {
+
+}
+
+void AsteroidShooter::shootAsteroid() {
+    Asteroid* a = new Asteroid(angle, speed);
     a->setPos(this->x, this->y);
-    return a;
+    scene->addItem(a);
 }

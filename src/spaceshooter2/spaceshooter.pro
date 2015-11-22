@@ -14,7 +14,8 @@ SOURCES += main.cpp \
     linearmovingitems.cpp \
     shotsingle.cpp \
     shotdouble.cpp \
-    shotstrategy.cpp
+    shotstrategy.cpp \
+    asteroidspawninglogic.cpp
 
 HEADERS += \
     asteroidshooter.h \
@@ -24,7 +25,8 @@ HEADERS += \
     linearmovingitems.h \
     shotsingle.h \
     shotstrategy.h \
-    shotdouble.h
+    shotdouble.h \
+    asteroidspawninglogic.h
 
 RESOURCES += qml.qrc
 

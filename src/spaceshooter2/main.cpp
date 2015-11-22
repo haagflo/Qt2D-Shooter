@@ -39,58 +39,77 @@
 ****************************************************************************/
 
 #include <QtWidgets>
-
 #include <math.h>
 
-
 #include "asteroid.h"
+#include "asteroidspawninglogic.h"
 #include "shuttle.h"
+#include "qvector.h"
+
+#define WINDOW_WIDTH 600
+#define WINDOW_HEIGHT 600
 
 int main(int argc, char **argv) {
-    int windowWidth = 600;
-    int windowHeight = 600;
 
     QApplication app(argc, argv);
     qsrand(QTime(0, 0, 0).secsTo(QTime::currentTime()));
 
     QGraphicsScene scene;
-    scene.setSceneRect(-windowWidth/2,-windowHeight/2,windowWidth,windowHeight);
-
+    scene.setSceneRect(-WINDOW_WIDTH/2,-WINDOW_HEIGHT/2,WINDOW_WIDTH,WINDOW_HEIGHT);
     scene.setItemIndexMethod(QGraphicsScene::NoIndex);
+
+    //-----------------------------------------------------------
+    //  SHUTTLE SETUP
+    //-----------------------------------------------------------
     Shuttle *shuttle = new Shuttle();
     scene.addItem(shuttle);
-
-
-    //ToDo: update() oder paint() methode von superklasse
-    //      in der dann asteroid shooter zufällig und regelmäßig
-    //      angetriggert werden
-    for (int i = 0; i < 6; ++i) {
-        Asteroid *asteroid = new Asteroid((i*30), 5);
-        asteroid->setPos(::sin((i * 6.28) / 6) * 200,
-                      ::cos((i * 6.28) / 6) * 200);
-        scene.addItem(asteroid);
-    }
-
     scene.setFocusItem(shuttle);
 
+    //-----------------------------------------------------------
+    //  GRAPHICS SETUP
+    //-----------------------------------------------------------
     QGraphicsView view(&scene);
     view.setRenderHint(QPainter::Antialiasing);
     view.setBackgroundBrush(QPixmap(":/images/backgroundSpace.png"));
-    view.setFixedSize(windowWidth,windowHeight);
+    view.setFixedSize(WINDOW_WIDTH,WINDOW_HEIGHT);
     view.setCacheMode(QGraphicsView::CacheBackground);
     view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     //Ich glaube daher kamen die Streifen(weil außerhalb des BoundingRect nicht neugezeichnet wurde)
     view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
-
     //Die Variante zeichnet dafür langsamer..
     //view.setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
-
     view.setWindowTitle(QT_TRANSLATE_NOOP(QGraphicsView, "Qt2D-SpaceShooter"));
     view.show();
 
+    //-----------------------------------------------------------
+    //  ASTEROID SPAWNING
+    //-----------------------------------------------------------
+    AsteroidShooter shooter1(-300, -300, 135, 5, &scene);
+    AsteroidShooter shooter2(-300, -80, 95, 3, &scene);
+    AsteroidShooter shooter3(-300, 50, 80, 3, &scene);
+    AsteroidShooter shooter4(-120, 300, 50, 3, &scene);
+    AsteroidShooter shooter5(120, 300, 350, 2, &scene);
+    AsteroidShooter shooter6(300, 40, 300, 4, &scene);
+    AsteroidShooter shooter7(300, -180, 220, 3, &scene);
+
+    QVector<AsteroidShooter> shooters;
+    shooters.append(shooter1);
+    shooters.append(shooter2);
+    shooters.append(shooter3);
+    shooters.append(shooter4);
+    shooters.append(shooter5);
+    shooters.append(shooter6);
+    shooters.append(shooter7);
+
+    AsteroidSpawningLogic asteroidSpawningLogic(30, shooters);
+
+    //-----------------------------------------------------------
+    //  TICK SIGNALS
+    //-----------------------------------------------------------
     QTimer timer;
     QObject::connect(&timer, SIGNAL(timeout()), &scene, SLOT(advance()));
+    QObject::connect(&timer, SIGNAL(timeout()), &asteroidSpawningLogic, SLOT(tick()));
     timer.start(1000 / 33);
 
     return app.exec();
