@@ -55,11 +55,9 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
                QWidget *widget) Q_DECL_OVERRIDE;
 
-protected:
-
-
 private:
-
+    int width = 32;
+    int height = 32;
 };
 
 #endif

@@ -14,9 +14,9 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
                QWidget *widget) Q_DECL_OVERRIDE;
 
-signals:
-
-public slots:
+private:
+    int width = 2;
+    int height = 10;
 };
 
 #endif // SHOT_H

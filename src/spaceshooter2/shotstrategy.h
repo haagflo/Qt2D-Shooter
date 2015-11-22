@@ -18,7 +18,7 @@ public:
     void increaseShotSpeed(int speed){shotSpeed+speed > 5 ? shotSpeed += speed: shotSpeed += 0;}
 
     //Erzeugt ein neues Shot-Objekt und fügt es der Scene hinzu
-    virtual void shoot() = 0 Q_DECL_OVERRIDE;
+    virtual void shoot() = 0;
     virtual ~ShotStrategy(){}
 
 protected:
