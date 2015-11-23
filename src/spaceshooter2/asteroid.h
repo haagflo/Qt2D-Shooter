@@ -49,6 +49,7 @@ public:
 
     Asteroid();
     Asteroid(qreal rot, qreal spd);
+    Asteroid(int x, int y, qreal rot, qreal spd);
 
     QRectF boundingRect() const Q_DECL_OVERRIDE;
     QPainterPath shape() const Q_DECL_OVERRIDE;
