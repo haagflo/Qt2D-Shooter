@@ -72,10 +72,10 @@ void Shuttle::advance(int step) {
 
         //Handling der verschiedenen KeyEvents
         if (keys[Qt::Key_Left]) {
-            setRotation(qRound(rotation() - speed) % 360);
+            setRotation(qRound(rotation() - turnspeed) % 360);
         }
         if (keys[Qt::Key_Right]) {
-            setRotation(qRound(rotation() + speed) % 360);
+            setRotation(qRound(rotation() + turnspeed) % 360);
         }
         if (keys[Qt::Key_Up]) {
             qreal nextX = x() + qSin(rotation() * M_PI/180) * speed;

@@ -43,8 +43,8 @@ void LinearMovingItems::advance(int step) {
 }
 
 void LinearMovingItems::deleteIfOutlier() {
-    if(pos().y() < -300 || pos().x() < -300 ||
-       pos().y() > 300 || pos().x() > 300 ){
+    if(pos().y() < -350 || pos().x() < -350 ||
+       pos().y() > 350 || pos().x() > 350 ){
         scene()->removeItem(this);
     }
 }

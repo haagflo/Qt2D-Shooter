@@ -35,6 +35,7 @@ private:
     ShotStrategy* shotstrategy;
     int width = 40;
     int height = 50;
+    int turnspeed = 16;
 };
 
 #endif // SHUTTLE_H
