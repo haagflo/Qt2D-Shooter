@@ -45,6 +45,7 @@
 #include "asteroidspawninglogic.h"
 #include "shuttle.h"
 #include "qvector.h"
+#include "itemshooter.h"
 
 #define WINDOW_WIDTH 600
 #define WINDOW_HEIGHT 600
@@ -103,6 +104,12 @@ int main(int argc, char **argv) {
     shooters.append(shooter7);
 
     AsteroidSpawningLogic asteroidSpawningLogic(30, shooters);
+
+    //-----------------------------------------------------------
+    //  ITEM SPAWNING
+    //-----------------------------------------------------------
+    ItemShooter item1(50, 50, &scene);
+
 
     //-----------------------------------------------------------
     //  TICK SIGNALS

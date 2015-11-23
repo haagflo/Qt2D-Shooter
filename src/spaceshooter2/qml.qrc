@@ -12,5 +12,6 @@
         <file>images/shuttle4.png</file>
         <file>images/shuttle5.png</file>
         <file>images/shuttle6.png</file>
+        <file>images/item_feature.png</file>
     </qresource>
 </RCC>

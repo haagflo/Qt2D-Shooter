@@ -15,7 +15,10 @@ SOURCES += main.cpp \
     shotsingle.cpp \
     shotdouble.cpp \
     shotstrategy.cpp \
-    asteroidspawninglogic.cpp
+    asteroidspawninglogic.cpp \
+    item.cpp \
+    itemshooter.cpp \
+    itemspawninglogic.cpp
 
 HEADERS += \
     asteroidshooter.h \
@@ -26,7 +29,10 @@ HEADERS += \
     shotsingle.h \
     shotstrategy.h \
     shotdouble.h \
-    asteroidspawninglogic.h
+    asteroidspawninglogic.h \
+    item.h \
+    itemshooter.h \
+    itemspawninglogic.h
 
 RESOURCES += qml.qrc
 
