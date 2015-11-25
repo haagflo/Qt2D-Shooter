@@ -15,7 +15,7 @@ public:
                QWidget *widget) Q_DECL_OVERRIDE;
 
 private:
-    int width = 2;
+    int width = 3;
     int height = 10;
 };
 

@@ -67,23 +67,6 @@ int main(int argc, char **argv) {
     scene.setFocusItem(shuttle);
 
     //-----------------------------------------------------------
-    //  GRAPHICS SETUP
-    //-----------------------------------------------------------
-    QGraphicsView view(&scene);
-    view.setRenderHint(QPainter::Antialiasing);
-    view.setBackgroundBrush(QPixmap(":/images/backgroundSpace.png"));
-    view.setFixedSize(WINDOW_WIDTH,WINDOW_HEIGHT);
-    view.setCacheMode(QGraphicsView::CacheBackground);
-    view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    //Ich glaube daher kamen die Streifen(weil außerhalb des BoundingRect nicht neugezeichnet wurde)
-    view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
-    //Die Variante zeichnet dafür langsamer..
-    //view.setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
-    view.setWindowTitle(QT_TRANSLATE_NOOP(QGraphicsView, "Qt2D-SpaceShooter"));
-    view.show();
-
-    //-----------------------------------------------------------
     //  ASTEROID SPAWNING
     //-----------------------------------------------------------
     AsteroidShooter shooter1(-300, -300, 135, 5, &scene);
@@ -118,6 +101,23 @@ int main(int argc, char **argv) {
     QObject::connect(&timer, SIGNAL(timeout()), &scene, SLOT(advance()));
     QObject::connect(&timer, SIGNAL(timeout()), &asteroidSpawningLogic, SLOT(tick()));
     timer.start(1000 / 33);
+
+    //-----------------------------------------------------------
+    //  GRAPHICS SETUP
+    //-----------------------------------------------------------
+    QGraphicsView view(&scene);
+    view.setRenderHint(QPainter::Antialiasing);
+    view.setBackgroundBrush(QPixmap(":/images/backgroundSpace.png"));
+    view.setFixedSize(WINDOW_WIDTH,WINDOW_HEIGHT);
+    view.setCacheMode(QGraphicsView::CacheBackground);
+    view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    //Ich glaube daher kamen die Streifen(weil außerhalb des BoundingRect nicht neugezeichnet wurde)
+    view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
+    //Die Variante zeichnet dafür langsamer..
+    //view.setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
+    view.setWindowTitle(QT_TRANSLATE_NOOP(QGraphicsView, "Qt2D-SpaceShooter"));
+    view.show();
 
     return app.exec();
 }
