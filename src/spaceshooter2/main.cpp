@@ -45,7 +45,8 @@
 #include "asteroidspawninglogic.h"
 #include "shuttle.h"
 #include "qvector.h"
-#include "itemshooter.h"
+#include "item.h"
+#include "itemspawninglogic.h"
 
 #define WINDOW_WIDTH 600
 #define WINDOW_HEIGHT 600
@@ -91,8 +92,7 @@ int main(int argc, char **argv) {
     //-----------------------------------------------------------
     //  ITEM SPAWNING
     //-----------------------------------------------------------
-    ItemShooter item1(50, 50, &scene);
-
+    ItemSpawningLogic itemSpawningLogic(&scene);
 
     //-----------------------------------------------------------
     //  TICK SIGNALS
@@ -101,6 +101,10 @@ int main(int argc, char **argv) {
     QObject::connect(&timer, SIGNAL(timeout()), &scene, SLOT(advance()));
     QObject::connect(&timer, SIGNAL(timeout()), &asteroidSpawningLogic, SLOT(tick()));
     timer.start(1000 / 33);
+
+    QTimer timer2;
+    QObject::connect(&timer2, SIGNAL(timeout()), &itemSpawningLogic, SLOT(tick2()));
+    timer2.start(1000);
 
     //-----------------------------------------------------------
     //  GRAPHICS SETUP

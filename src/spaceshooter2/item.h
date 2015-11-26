@@ -12,6 +12,7 @@ public:
 
     Item();
     //Item(qreal itemfunc);
+    ~Item() {}
 
     QRectF boundingRect() const Q_DECL_OVERRIDE;
     QPainterPath shape() const Q_DECL_OVERRIDE;
