@@ -16,7 +16,6 @@ QPainterPath Item::shape() const {
 
 void Item::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) {
       QImage image(":/images/item_feature.png");
-//    painter->setBrush(scene()->collidingItems(this).isEmpty() ? Qt::darkYellow : Qt::red);
       painter->drawImage(QRectF(0,0,width,height), image);
 }
 

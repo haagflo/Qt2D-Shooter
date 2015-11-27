@@ -1,16 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/fireball.png</file>
-        <file>images/shuttle.png</file>
-        <file>images/cheese.jpg</file>
-        <file>images/shot.png</file>
         <file>images/asteroid.png</file>
         <file>images/backgroundSpace.png</file>
         <file>images/shot2.png</file>
-        <file>images/shuttle2.png</file>
-        <file>images/shuttle3.png</file>
-        <file>images/shuttle4.png</file>
-        <file>images/shuttle5.png</file>
         <file>images/shuttle6.png</file>
         <file>images/item_feature.png</file>
     </qresource>

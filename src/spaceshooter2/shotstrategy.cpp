@@ -1,8 +1,6 @@
 #include "shotstrategy.h"
 
-ShotStrategy::ShotStrategy()
-{
-
+ShotStrategy::ShotStrategy() {
 }
 
 ShotStrategy::ShotStrategy(QGraphicsItem *shut)

@@ -1,10 +1,10 @@
 #include "linearmovingitems.h"
 
-//!  Elternklasse für alle geradlinig bewegliche Objekte.
+//!  parent class for all linear moving objects
 /*!
-  Asteoriden oder Schüsse, evtl. auch Items deren Bewegung durch eine
-  Geschwindigkeit und durch eine Rotationsrichtung beschrieben werden können.
+     asteroids or shots, maybe items whose movement is described via speed and orientation
 */
+
 LinearMovingItems::LinearMovingItems() {
     setTransformOriginPoint(boundingRect().width()/2, boundingRect().height()/2);
     setRotation(0);
@@ -51,10 +51,8 @@ void LinearMovingItems::deleteIfOutlier() {
 
 void LinearMovingItems::deleteIfCollides(){
         if(!collidingItems().isEmpty()){
-            //TODO: Start Animation and optimize Shapes...
-            //Kollisionserkenung schlägt zu früh an, weil Grafiken größer sind als man sieht..
-            //Die Bilder haben einen Alphawert für alles was außenherum liegt, (also transparent)..
-            //ansonsten sollte es einfach mit dieser Zeile funktionieren:
-        //    scene()->removeItem(this);
+
+        // TODO for collision control
+        // scene()->removeItem(this);
         }
 }

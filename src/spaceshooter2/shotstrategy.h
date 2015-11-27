@@ -10,23 +10,23 @@ class ShotStrategy
 public:
 
     ShotStrategy();
-    //Referenz auf Shuttle wird benötigt um Startposition des Schusses festzulegen
+    // reference to shuttle is necessary to set up start position of shot
+
     ShotStrategy(QGraphicsItem* shut);
 
-    //Just for FUN ;)
+    // for future special items
     void increaseReloadSpeed(int speed){reloadSpeed-speed > 50 ? reloadSpeed -= speed: reloadSpeed +=0;}
     void increaseShotSpeed(int speed){shotSpeed+speed > 5 ? shotSpeed += speed: shotSpeed += 0;}
 
-    //Erzeugt ein neues Shot-Objekt und fügt es der Scene hinzu
+    // creation of new shot object and adding to the scene
     virtual void shoot() = 0;
+
     virtual ~ShotStrategy(){}
 
 protected:
     QTime lastShot;
     QGraphicsItem* shuttle;
-    //Geschwindigkeit mit welcher nach einander Schüsse abgefeuert werden können
     int reloadSpeed;
-    //Geschoss Fluggeschwindigkeit
     int shotSpeed;
 
 };

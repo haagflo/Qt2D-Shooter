@@ -18,7 +18,6 @@ QPainterPath Asteroid::shape() const {
 
 void Asteroid::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) {
       QImage image(":/images/asteroid.png");
-//    painter->setBrush(scene()->collidingItems(this).isEmpty() ? Qt::darkYellow : Qt::red);
       painter->drawImage(QRectF(0,0,width,height), image);
 }
 

@@ -11,7 +11,6 @@ class Item : public QGraphicsItem
 public:
 
     Item();
-    //Item(qreal itemfunc);
     ~Item() {}
 
     QRectF boundingRect() const Q_DECL_OVERRIDE;

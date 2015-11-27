@@ -1,17 +1,11 @@
 #include "shot.h"
 
-//!  Ein Schuss des Raumschiffs
-/*!
-  TODO: Kann noch um Zerstörungskraft erweitert werden. Dann kann diese Klasse als Elternklasse
-  für unterschiedliche Munition verwendet werden. (z.B. Schwacher Schuss braucht zwei Treffer um
-  Asteorid zu zerstören)
-*/
-Shot::Shot() : LinearMovingItems()
-{
+// one shot of the shuttle
+
+Shot::Shot() : LinearMovingItems() {
 }
 
-Shot::Shot(qreal rot, qreal spd) : LinearMovingItems(rot, spd)
-{
+Shot::Shot(qreal rot, qreal spd) : LinearMovingItems(rot, spd) {
 }
 
 QRectF Shot::boundingRect() const {

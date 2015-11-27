@@ -4,19 +4,18 @@
 
 Shuttle::Shuttle() : speed(10)
 {
-    //Wird benötigt um KeyEvents zu erhalten!
+    // needed to get KeyEvents
     setFlag(QGraphicsItem::ItemIsFocusable);
     setShotStrategy(new ShotSingle(this));
 }
 
-//Dieses Rechteck wird verwendet um Herauszufinden
-//welcher Bereich von der GraphicsScene neu gezeichnet werden muss.
+// this rectangle is used to find out which area of the GraphicsScene has to be redrawn
 QRectF Shuttle::boundingRect() const
 {
     return QRectF(0, 0, width, height);
 }
 
-//Dieses Shape wird zur Kollisionskontrolle verwendet!
+// this shape is used for collision control
 QPainterPath Shuttle::shape() const
 {
     QPainterPath path;
@@ -24,7 +23,7 @@ QPainterPath Shuttle::shape() const
     return path;
 }
 
-//Wird von GraphicsScene aufgerufen um das Objekt zu zeichnen
+// called by GraphicsScene to draw the object
 void Shuttle::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     QImage image(":/images/shuttle6.png");
@@ -32,9 +31,7 @@ void Shuttle::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget
 }
 
 
-//Lösung um Keyboard Inputs ohne einmaligem "Stop" auszuführen:
-//https://forum.qt.io/topic/28327/big-issue-with-qt-key-inputs-for-gaming/4
-//http://doc.qt.io/qt-5.5/eventsandfilters.html
+// solution to execute an uninterrupted keyboard input:
 void Shuttle::keyPressEvent(QKeyEvent *event){
     if(event->key() == Qt::Key_D){
         setShotStrategy(new ShotDouble(this));
@@ -42,7 +39,7 @@ void Shuttle::keyPressEvent(QKeyEvent *event){
     if(event->key() == Qt::Key_S){
         setShotStrategy(new ShotSingle(this));
     }
-    //TODO: Remove ;) Or keep it just for Fun.
+    // TODO: future use for special items
     if(event->key() == Qt::Key_Plus){
         shotstrategy->increaseReloadSpeed(10);
     }
@@ -66,11 +63,11 @@ void Shuttle::advance(int step) {
      if (!step)
         return;
 
-        //wird benötigt um um das Zentrum des Rechtecks zu Rotieren
-        //(Standard mäßig wird an linker oberer Ecke rotiert..)
+        // necessary to rotate around the centre of the rectangle
+        // (default: rotation around the top left corner)
         setTransformOriginPoint(QPoint(width/2,height/2));
 
-        //Handling der verschiedenen KeyEvents
+        // handling of different KeyEvents
         if (keys[Qt::Key_Left]) {
             setRotation(qRound(rotation() - turnspeed) % 360);
         }
@@ -92,5 +89,4 @@ void Shuttle::advance(int step) {
         if(keys[Qt::Key_Space]){
             shotstrategy->shoot();
         }
-
 }

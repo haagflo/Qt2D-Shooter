@@ -1,17 +1,16 @@
 #include "shotdouble.h"
 
 
-//!  Implementation von ShotStrategy -> Zweifach Schuss.
+//!  Implementation of ShotStrategy -> double shot
 /*!
-  Erzeugt gleichzeitig zwei Schüsse.
-  Einen am linken oberen Eck und einen am rechten oberen Eck des Raumschiffs.
+  creation of two shots at same time
+  one in the left top corner and one in the right top corner of the shuttle
 */
-ShotDouble::ShotDouble():ShotStrategy()
-{
+
+ShotDouble::ShotDouble():ShotStrategy() {
 }
 
-ShotDouble::ShotDouble(QGraphicsItem *shut):ShotStrategy(shut)
-{
+ShotDouble::ShotDouble(QGraphicsItem *shut):ShotStrategy(shut) {
 }
 
 void ShotDouble::shoot()

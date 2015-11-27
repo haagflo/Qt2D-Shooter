@@ -1,10 +1,11 @@
 #include "shotsingle.h"
 
-//!  Implementation von ShotStrategy -> Einfacher Schuss.
+//!  Implementation of ShotStrategy -> single shot
 /*!
-  Erzeugt einen Schuss in der Mitte des Raumschiffs.
-  (TODO: ist noch nicht gut, muss die Mitte der oberen Kante des Raumschiffs sein..)
+  creation of shot in the centre of the shuttle
+  (TODO: set to middle top edge of shuttle)
 */
+
 ShotSingle::ShotSingle():ShotStrategy(){
 }
 
