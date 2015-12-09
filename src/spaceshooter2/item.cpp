@@ -2,6 +2,7 @@
 #include "item.h"
 
 Item::Item(){
+    setData(classType, item);
 }
 
 QRectF Item::boundingRect() const {

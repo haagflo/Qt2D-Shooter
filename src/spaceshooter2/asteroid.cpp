@@ -4,6 +4,7 @@ Asteroid::Asteroid(){
 }
 
 Asteroid::Asteroid(qreal rot, qreal spd) : LinearMovingItems(rot, spd) {
+    setData(classType, asteroid);
 }
 
 QRectF Asteroid::boundingRect() const {

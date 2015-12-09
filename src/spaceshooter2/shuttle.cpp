@@ -7,6 +7,7 @@ Shuttle::Shuttle() : speed(10)
     // needed to get KeyEvents
     setFlag(QGraphicsItem::ItemIsFocusable);
     setShotStrategy(new ShotSingle(this));
+    setData(classType, shuttle);
 }
 
 // this rectangle is used to find out which area of the GraphicsScene has to be redrawn
@@ -89,4 +90,24 @@ void Shuttle::advance(int step) {
         if(keys[Qt::Key_Space]){
             shotstrategy->shoot();
         }
+
+        deleteIfCollides();
 }
+
+
+void Shuttle::deleteIfCollides(){
+
+        //will be deleted one frame after collision..
+        //good enough? or should collision control of all items be done in main?
+        if(hits == life){
+            scene()->removeItem(this);
+        }
+        if(!collidingItems().isEmpty()){
+            for(int i = 0; i < collidingItems().size(); i++){
+                if(collidingItems()[i]->data(classType) == asteroid){
+                     hits += 1;
+                }
+            }
+        }
+}
+

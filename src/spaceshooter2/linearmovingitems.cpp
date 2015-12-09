@@ -1,4 +1,5 @@
 #include "linearmovingitems.h"
+#include <QPropertyAnimation>
 
 //!  parent class for all linear moving objects
 /*!
@@ -50,9 +51,20 @@ void LinearMovingItems::deleteIfOutlier() {
 }
 
 void LinearMovingItems::deleteIfCollides(){
-        if(!collidingItems().isEmpty()){
 
-        // TODO for collision control
-        // scene()->removeItem(this);
+        //will be deleted one frame after collision..
+        //good enough? or should collision control of all items be done in main?
+        if(hits == life){
+            //speed = 0;
+            //do animation
+            scene()->removeItem(this);
+        }
+        if(!collidingItems().isEmpty()){
+            for(int i = 0; i < collidingItems().size(); i++){
+                if(collidingItems()[i]->data(classType) == asteroid |
+                        collidingItems()[i]->data(classType) == shot){
+                     hits += 1;
+                }
+            }
         }
 }

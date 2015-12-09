@@ -6,6 +6,7 @@ Shot::Shot() : LinearMovingItems() {
 }
 
 Shot::Shot(qreal rot, qreal spd) : LinearMovingItems(rot, spd) {
+    setData(classType, shot);
 }
 
 QRectF Shot::boundingRect() const {

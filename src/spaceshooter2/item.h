@@ -4,6 +4,7 @@
 #include <QGraphicsItem>
 #include <QGraphicsScene>
 #include <QPainter>
+#include "constants.h"
 
 
 class Item : public QGraphicsItem

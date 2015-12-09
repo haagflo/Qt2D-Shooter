@@ -30,7 +30,8 @@ HEADERS += \
     shotdouble.h \
     asteroidspawninglogic.h \
     item.h \
-    itemspawninglogic.h
+    itemspawninglogic.h \
+    constants.h
 
 RESOURCES += qml.qrc
 

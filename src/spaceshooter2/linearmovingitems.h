@@ -6,6 +6,7 @@
 #include <QPainter>
 #include <math.h>
 #include <QtMath>
+#include "constants.h"
 
 
 class LinearMovingItems : public QGraphicsItem
@@ -26,6 +27,9 @@ protected:
 
 private:
     qreal speed;
+    qreal hits;
+    qreal life = 1;
+
 
 };
 

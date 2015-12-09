@@ -9,6 +9,7 @@
 #include <QtMath>
 
 #include "shotstrategy.h"
+#include "constants.h"
 
 class Shuttle : public QGraphicsItem
 {
@@ -26,6 +27,7 @@ protected:
     void advance(int step) Q_DECL_OVERRIDE;
     void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
     void keyReleaseEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
+    void deleteIfCollides();
 
 private:
     int speed;
@@ -34,6 +36,10 @@ private:
     int width = 40;
     int height = 50;
     int turnspeed = 16;
+
+    qreal hits;
+    qreal life = 1;
+
 };
 
 #endif // SHUTTLE_H
