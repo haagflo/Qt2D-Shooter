@@ -6,20 +6,18 @@ Shot::Shot() : LinearMovingItems() {
 }
 
 Shot::Shot(qreal rot, qreal spd) : LinearMovingItems(rot, spd) {
-    setData(classType, shot);
-}
-
-QRectF Shot::boundingRect() const {
-    return QRectF(0, 0, width, height);
-}
-
-QPainterPath Shot::shape() const {
-    QPainterPath path;
-    path.addRect(0, 0, width, height);
-    return path;
+    width = 3;
+    height = 10;
+    setData(classTypeKey, shot);
 }
 
 void Shot::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) {
     QImage image(":/images/shot2.png");
     painter->drawImage(QRectF(0,0,width,height), image);
+}
+
+void Shot::advance(int step)
+{
+    LinearMovingItems::advance(step);
+    deleteIfCollidesWith(asteroid);
 }

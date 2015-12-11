@@ -1,24 +1,17 @@
 #ifndef LINEARMOVINGITEMS_H
 #define LINEARMOVINGITEMS_H
 
-#include <QGraphicsItem>
-#include <QGraphicsScene>
-#include <QPainter>
+
 #include <math.h>
 #include <QtMath>
-#include "constants.h"
 
+#include "collidable.h"
 
-class LinearMovingItems : public QGraphicsItem
+class LinearMovingItems : public Collidable
 {
 public:
     LinearMovingItems();
     LinearMovingItems(qreal rot, qreal spd);
-
-    QRectF boundingRect() const Q_DECL_OVERRIDE;
-    QPainterPath shape() const Q_DECL_OVERRIDE;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
-               QWidget *widget) Q_DECL_OVERRIDE;
 
 protected:
     void advance(int step) Q_DECL_OVERRIDE;
@@ -27,10 +20,6 @@ protected:
 
 private:
     qreal speed;
-    qreal hits;
-    qreal life = 1;
-
-
 };
 
 #endif // LINEARMOVINGITEMS_H
