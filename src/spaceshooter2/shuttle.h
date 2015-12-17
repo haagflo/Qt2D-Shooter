@@ -7,11 +7,12 @@
 
 #include "shotstrategy.h"
 #include "collidable.h"
+#include "itemspawninglogic.h"
 
 class Shuttle : public Collidable
 {
 public:
-    Shuttle();
+    Shuttle(ItemSpawningLogic* itemSpawningLogic);
     void setShotStrategy(ShotStrategy *strat) { shotstrategy = strat; }
     void shoot();
 
@@ -30,6 +31,8 @@ private:
     ShotStrategy* shotstrategy;
     int turnspeed = 16;
 
+    unsigned char points = 0;
+    ItemSpawningLogic* itemSpawningLogicLocal;
 };
 
 #endif // SHUTTLE_H

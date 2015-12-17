@@ -5,5 +5,8 @@
         <file>images/shot2.png</file>
         <file>images/shuttle6.png</file>
         <file>images/item_feature.png</file>
+        <file>images/weapons3.jpg</file>
+        <file>images/life2.jpg</file>
+        <file>images/shield2.jpg</file>
     </qresource>
 </RCC>

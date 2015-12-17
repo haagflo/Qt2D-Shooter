@@ -31,7 +31,6 @@ void Collidable::deleteIfCollidesWith(int classtype)
             }
         }
     }
-
 }
 
 void Collidable::deleteIfCollidesWith(int classtype, int classtype2)
@@ -52,6 +51,5 @@ void Collidable::deleteIfCollidesWith(int classtype, int classtype2)
             }
         }
     }
-
 }
 

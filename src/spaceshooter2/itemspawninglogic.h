@@ -14,6 +14,7 @@ public:
     ~ItemSpawningLogic() {}
 
     void createItem();
+    Item *getItem();
 
 private:
     void resetSpawnCountdown();

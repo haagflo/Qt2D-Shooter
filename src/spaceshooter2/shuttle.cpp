@@ -1,8 +1,9 @@
 #include "shuttle.h"
 #include "shotsingle.h"
 #include "shotdouble.h"
+#include "itemspawninglogic.h"
 
-Shuttle::Shuttle() : speed(10)
+Shuttle::Shuttle(ItemSpawningLogic* itemSpawningLogic) : speed(10)
 {
     width = 40;
     height = 50;
@@ -11,6 +12,8 @@ Shuttle::Shuttle() : speed(10)
     setFlag(QGraphicsItem::ItemIsFocusable);
     setShotStrategy(new ShotSingle(this));
     setData(classTypeKey, shuttle);
+
+    itemSpawningLogicLocal = itemSpawningLogic;
 }
 
 
@@ -82,14 +85,22 @@ void Shuttle::advance(int step) {
         itemCollisionHandling();
 }
 
-
-
 void Shuttle::itemCollisionHandling(){
+
+    Item* Itemgetted;
+    Itemgetted = itemSpawningLogicLocal->getItem();
 
      for(int i = 0; i < collidingItems().size(); i++){
         if(collidingItems()[i]->data(classTypeKey) == item){
-             setShotStrategy(new ShotDouble(this));
-        }
-     }
-}
+            if(Itemgetted->ItemType == 0) {
+                setShotStrategy(new ShotDouble(this));
+            }
 
+            else if(Itemgetted->ItemType == 1) {
+                // 0.5 because function is called twice
+                // when collision of shuttle with life item occurs
+                life = life + 0.5;
+            }
+        }
+    }
+}

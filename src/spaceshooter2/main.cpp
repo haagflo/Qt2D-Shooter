@@ -21,9 +21,14 @@ int main(int argc, char **argv) {
     scene.setItemIndexMethod(QGraphicsScene::NoIndex);
 
     //-----------------------------------------------------------
+    //  ITEM SPAWNING
+    //-----------------------------------------------------------
+    ItemSpawningLogic itemSpawningLogic(&scene);
+
+    //-----------------------------------------------------------
     //  SHUTTLE SETUP
     //-----------------------------------------------------------
-    Shuttle *shuttle = new Shuttle();
+    Shuttle *shuttle = new Shuttle(&itemSpawningLogic);
 
     scene.addItem(shuttle);
     scene.setFocusItem(shuttle);
@@ -51,11 +56,6 @@ int main(int argc, char **argv) {
     AsteroidSpawningLogic asteroidSpawningLogic(30, shooters);
 
     //-----------------------------------------------------------
-    //  ITEM SPAWNING
-    //-----------------------------------------------------------
-    ItemSpawningLogic itemSpawningLogic(&scene);
-
-    //-----------------------------------------------------------
     //  TICK SIGNALS
     //-----------------------------------------------------------
     QTimer timer;
@@ -78,6 +78,7 @@ int main(int argc, char **argv) {
     view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
+
     view.setWindowTitle(QT_TRANSLATE_NOOP(QGraphicsView, "Qt2D-SpaceShooter"));
     view.show();
 

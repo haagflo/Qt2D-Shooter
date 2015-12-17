@@ -31,12 +31,18 @@ void ItemSpawningLogic::createItem() {
     int randomx = rand() % 500 - 250;
     int randomy = rand() % 500 - 250;
 
+    // generate random number for type of extra item
+    int randomtype = rand() % 2;
+
     // add the feature item to the scene
     Item* i = new Item();
     this->i = i;
     i->setPos(randomx, randomy);
     scene->addItem(i);
     ItemExisting = true;
+
+    // write item type to member variable
+    i->ItemType = randomtype;
 }
 
 void ItemSpawningLogic::resetSpawnCountdown() {
@@ -50,5 +56,10 @@ void ItemSpawningLogic::removeItemFromRandomShooter() {
     //delete the existing feature item from the scene
     scene->removeItem(i);
     ItemExisting = false;
+}
+
+Item* ItemSpawningLogic::getItem() {
+    // read out the address of the item object
+    return i;
 }
 
