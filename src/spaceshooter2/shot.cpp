@@ -16,8 +16,7 @@ void Shot::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
     painter->drawImage(QRectF(0,0,width,height), image);
 }
 
-void Shot::advance(int step)
-{
+void Shot::advance(int step) {
     LinearMovingItems::advance(step);
     deleteIfCollidesWith(asteroid);
 }

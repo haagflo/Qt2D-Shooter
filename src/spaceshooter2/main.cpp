@@ -58,14 +58,18 @@ int main(int argc, char **argv) {
     //-----------------------------------------------------------
     //  TICK SIGNALS
     //-----------------------------------------------------------
-    QTimer timer;
+    QTimer timer; //Game loop timer (30 FPS)
     QObject::connect(&timer, SIGNAL(timeout()), &scene, SLOT(advance()));
     QObject::connect(&timer, SIGNAL(timeout()), &asteroidSpawningLogic, SLOT(tick()));
     timer.start(1000 / 33);
 
-    QTimer timer2;
+    QTimer timer2; //Item spawning
     QObject::connect(&timer2, SIGNAL(timeout()), &itemSpawningLogic, SLOT(tick2()));
     timer2.start(1000);
+
+    QTimer difficultyTimer; //
+    QObject::connect(&difficultyTimer, SIGNAL(timeout()), &asteroidSpawningLogic, SLOT(increaseDifficulty()));
+    difficultyTimer.start(10000);
 
     //-----------------------------------------------------------
     //  GRAPHICS SETUP

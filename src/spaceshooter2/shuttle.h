@@ -29,7 +29,7 @@ private:
     int speed;
     QMap<int, bool> keys;
     ShotStrategy* shotstrategy;
-    int turnspeed = 16;
+    int turnspeed = 12;
 
     unsigned char points = 0;
     ItemSpawningLogic* itemSpawningLogicLocal;

@@ -22,8 +22,7 @@ void AsteroidSpawningLogic::spawnAsteroidFromRandomShooter() {
     if(shooters.length() <= 0) {
         return;
     }
-    int shooterId = getRandomShooterId();
-    AsteroidShooter shooter = shooters.at(shooterId);
+    AsteroidShooter shooter = shooters.at(getRandomShooterId());
     shooter.shootAsteroid();
 }
 
@@ -35,4 +34,10 @@ int AsteroidSpawningLogic::getRandomShooterId() {
         return randomId;
     }
     return -1;
+}
+
+void AsteroidSpawningLogic::increaseDifficulty() {
+    if(this->spawningTickDelta > 10) {
+        this->spawningTickDelta -= 5;
+    }
 }
