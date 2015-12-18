@@ -20,6 +20,7 @@ private:
 
 public slots:
     void tick();
+    void increaseDifficulty();
 
 private:
     QVector<AsteroidShooter>& shooters;
