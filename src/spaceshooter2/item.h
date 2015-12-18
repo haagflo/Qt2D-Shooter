@@ -14,7 +14,6 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
                QWidget *widget) Q_DECL_OVERRIDE;
 
-    // TODO: should be moved to private
     int ItemType;
 
 protected:

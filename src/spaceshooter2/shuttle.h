@@ -31,7 +31,6 @@ private:
     ShotStrategy* shotstrategy;
     int turnspeed = 12;
 
-    unsigned char points = 0;
     ItemSpawningLogic* itemSpawningLogicLocal;
 };
 

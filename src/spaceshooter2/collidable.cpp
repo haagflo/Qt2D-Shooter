@@ -16,7 +16,6 @@ QPainterPath Collidable::shape() const {
 
 void Collidable::deleteIfCollidesWith(int classtype)
 {
-
     //will be deleted one frame after collision..
     //good enough? or should collision control of all items be done in main?
     if(life == 0){
@@ -35,7 +34,6 @@ void Collidable::deleteIfCollidesWith(int classtype)
 
 void Collidable::deleteIfCollidesWith(int classtype, int classtype2)
 {
-
     //will be deleted one frame after collision..
     //good enough? or should collision control of all items be done in main?
     if(life <= 0){
@@ -46,7 +44,7 @@ void Collidable::deleteIfCollidesWith(int classtype, int classtype2)
     if(!collidingItems().isEmpty()){
         for(int i = 0; i < collidingItems().size(); i++){
             if(collidingItems()[i]->data(classTypeKey) == classtype
-                    | collidingItems()[i]->data(classTypeKey) == classtype2){
+                    || collidingItems()[i]->data(classTypeKey) == classtype2){
                  life -= 1;
             }
         }
