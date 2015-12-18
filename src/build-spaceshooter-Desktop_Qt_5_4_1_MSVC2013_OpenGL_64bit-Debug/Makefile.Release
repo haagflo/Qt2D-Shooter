@@ -55,9 +55,11 @@ SOURCES       = ..\spaceshooter2\main.cpp \
 		..\spaceshooter2\asteroidspawninglogic.cpp \
 		..\spaceshooter2\item.cpp \
 		..\spaceshooter2\itemspawninglogic.cpp \
-		..\spaceshooter2\collidable.cpp release\qrc_qml.cpp \
+		..\spaceshooter2\collidable.cpp \
+		..\spaceshooter2\roundrestartlogic.cpp release\qrc_qml.cpp \
 		release\moc_asteroidspawninglogic.cpp \
-		release\moc_itemspawninglogic.cpp
+		release\moc_itemspawninglogic.cpp \
+		release\moc_roundrestartlogic.cpp
 OBJECTS       = release\main.obj \
 		release\asteroidshooter.obj \
 		release\asteroid.obj \
@@ -71,9 +73,11 @@ OBJECTS       = release\main.obj \
 		release\item.obj \
 		release\itemspawninglogic.obj \
 		release\collidable.obj \
+		release\roundrestartlogic.obj \
 		release\qrc_qml.obj \
 		release\moc_asteroidspawninglogic.obj \
-		release\moc_itemspawninglogic.obj
+		release\moc_itemspawninglogic.obj \
+		release\moc_roundrestartlogic.obj
 
 DIST          =  ..\spaceshooter2\asteroidshooter.h \
 		..\spaceshooter2\asteroid.h \
@@ -87,7 +91,8 @@ DIST          =  ..\spaceshooter2\asteroidshooter.h \
 		..\spaceshooter2\item.h \
 		..\spaceshooter2\itemspawninglogic.h \
 		..\spaceshooter2\constants.h \
-		..\spaceshooter2\collidable.h ..\spaceshooter2\main.cpp \
+		..\spaceshooter2\collidable.h \
+		..\spaceshooter2\roundrestartlogic.h ..\spaceshooter2\main.cpp \
 		..\spaceshooter2\asteroidshooter.cpp \
 		..\spaceshooter2\asteroid.cpp \
 		..\spaceshooter2\shuttle.cpp \
@@ -99,7 +104,8 @@ DIST          =  ..\spaceshooter2\asteroidshooter.h \
 		..\spaceshooter2\asteroidspawninglogic.cpp \
 		..\spaceshooter2\item.cpp \
 		..\spaceshooter2\itemspawninglogic.cpp \
-		..\spaceshooter2\collidable.cpp
+		..\spaceshooter2\collidable.cpp \
+		..\spaceshooter2\roundrestartlogic.cpp
 QMAKE_TARGET  = spaceshooter
 DESTDIR        = release\ #avoid trailing-slash linebreak
 TARGET         = spaceshooter.exe
@@ -188,7 +194,7 @@ dist:
 	$(ZIP) spaceshooter.zip $(SOURCES) $(DIST) ..\spaceshooter2\spaceshooter.pro C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\spec_pre.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\common\shell-win32.conf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\qconfig.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_axbase.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_axbase_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_axcontainer.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_axcontainer_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_axserver.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_axserver_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_bluetooth.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_bluetooth_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_bootstrap_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_clucene_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_concurrent.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_concurrent_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_core.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_core_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_dbus.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_dbus_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_declarative.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_declarative_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_designer.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_designer_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_designercomponents_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_enginio.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_enginio_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_gui.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_gui_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_help.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_help_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_location.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_location_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_multimedia.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_multimedia_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_multimediawidgets.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_network.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_network_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_nfc.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_nfc_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_opengl.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_opengl_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_openglextensions.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_openglextensions_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_platformsupport_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_positioning.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_positioning_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_printsupport.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_printsupport_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_qml.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_qml_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_qmltest.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_qmltest_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_quick.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_quick_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_quickparticles_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_quickwidgets.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_script.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_script_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_scripttools.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_scripttools_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_sensors.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_sensors_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_serialport.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_serialport_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_sql.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_sql_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_svg.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_svg_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_testlib.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_testlib_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_uitools.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_uitools_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webchannel.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webchannel_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webengine.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webengine_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webenginecore.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webenginecore_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webenginewidgets.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webenginewidgets_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webkit.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webkit_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webkitwidgets.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webkitwidgets_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_websockets.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_websockets_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webview.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_webview_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_widgets.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_widgets_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_winextras.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_winextras_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_xml.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_xml_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_xmlpatterns.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\qt_functions.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\qt_config.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\win32\qt_config.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\win32-msvc2013\qmake.conf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\spec_post.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\exclusive_builds.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\default_pre.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\win32\default_pre.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\resolve_config.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\exclusive_builds_post.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\default_post.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\build_pass.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\win32\console.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\win32\rtti.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\precompile_header.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\warn_on.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\qt.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\resources.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\moc.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\win32\opengl.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\uic.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\testcase_targets.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\exceptions.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\yacc.prf C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\mkspecs\features\lex.prf ..\spaceshooter2\spaceshooter.pro ..\spaceshooter2\qml.qrc C:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/lib/Qt5Widgets.prl C:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/lib/Qt5Gui.prl C:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/lib/Qt5Core.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\main.obj release\asteroidshooter.obj release\asteroid.obj release\shuttle.obj release\shot.obj release\linearmovingitems.obj release\shotsingle.obj release\shotdouble.obj release\shotstrategy.obj release\asteroidspawninglogic.obj release\item.obj release\itemspawninglogic.obj release\collidable.obj release\qrc_qml.obj release\moc_asteroidspawninglogic.obj release\moc_itemspawninglogic.obj
+	-$(DEL_FILE) release\main.obj release\asteroidshooter.obj release\asteroid.obj release\shuttle.obj release\shot.obj release\linearmovingitems.obj release\shotsingle.obj release\shotdouble.obj release\shotstrategy.obj release\asteroidspawninglogic.obj release\item.obj release\itemspawninglogic.obj release\collidable.obj release\roundrestartlogic.obj release\qrc_qml.obj release\moc_asteroidspawninglogic.obj release\moc_itemspawninglogic.obj release\moc_roundrestartlogic.obj
 	-$(DEL_FILE) release\spaceshooter.exp
 
 distclean: clean 
@@ -208,15 +214,18 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_qml.cpp
 release\qrc_qml.cpp: ..\spaceshooter2\qml.qrc \
 		..\spaceshooter2\images\shot2.png \
+		..\spaceshooter2\images\weapons3.jpg \
+		..\spaceshooter2\images\life2.jpg \
 		..\spaceshooter2\images\asteroid.png \
 		..\spaceshooter2\images\shuttle6.png \
 		..\spaceshooter2\images\item_feature.png \
+		..\spaceshooter2\images\shield2.jpg \
 		..\spaceshooter2\images\backgroundSpace.png
 	C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\bin\rcc.exe -name qml ..\spaceshooter2\qml.qrc -o release\qrc_qml.cpp
 
-compiler_moc_header_make_all: release\moc_asteroidspawninglogic.cpp release\moc_itemspawninglogic.cpp
+compiler_moc_header_make_all: release\moc_asteroidspawninglogic.cpp release\moc_itemspawninglogic.cpp release\moc_roundrestartlogic.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) release\moc_asteroidspawninglogic.cpp release\moc_itemspawninglogic.cpp
+	-$(DEL_FILE) release\moc_asteroidspawninglogic.cpp release\moc_itemspawninglogic.cpp release\moc_roundrestartlogic.cpp
 release\moc_asteroidspawninglogic.cpp: C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\QObject \
 		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qobject.h \
 		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qobjectdefs.h \
@@ -428,6 +437,128 @@ release\moc_itemspawninglogic.cpp: C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl
 		..\spaceshooter2\constants.h \
 		..\spaceshooter2\itemspawninglogic.h
 	C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/mkspecs/win32-msvc2013 -IC:/Users/void/Source/Qt2D-Shooter/src/spaceshooter2 -IC:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/include -IC:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/include/QtWidgets -IC:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/include/QtGui -IC:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/include/QtCore -I. ..\spaceshooter2\itemspawninglogic.h -o release\moc_itemspawninglogic.cpp
+
+release\moc_roundrestartlogic.cpp: C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\QObject \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qobject.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qobjectdefs.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qnamespace.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qglobal.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qconfig.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qfeatures.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qsystemdetection.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qprocessordetection.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qcompilerdetection.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qtypeinfo.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qtypetraits.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qsysinfo.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qlogging.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qflags.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qbasicatomic.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qgenericatomic.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_msvc.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_armv7.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_armv6.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_armv5.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_ia64.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_mips.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_x86.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_gcc.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_unix.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qglobalstatic.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qmutex.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qnumeric.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qstring.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qchar.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qbytearray.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qrefcount.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qarraydata.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qstringbuilder.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qlist.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qalgorithms.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qiterator.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qbytearraylist.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qcoreevent.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qscopedpointer.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qmetatype.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qvarlengtharray.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qcontainerfwd.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qisenum.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qobject_impl.h \
+		..\spaceshooter2\shuttle.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\QKeyEvent \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qevent.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qwindowdefs.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qwindowdefs_win.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qregion.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qrect.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qmargins.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qsize.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qpoint.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qdatastream.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qiodevice.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qpair.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qkeysequence.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qvariant.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qmap.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qdebug.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qhash.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qtextstream.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qlocale.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qshareddata.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qvector.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qset.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qcontiguouscache.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qstringlist.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qregexp.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qstringmatcher.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qurl.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qurlquery.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qfile.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qfiledevice.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qvector2d.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qtouchdevice.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\QtMath \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qmath.h \
+		..\spaceshooter2\shotstrategy.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\QTime \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qdatetime.h \
+		..\spaceshooter2\shot.h \
+		..\spaceshooter2\linearmovingitems.h \
+		..\spaceshooter2\collidable.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtWidgets\QGraphicsItem \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtWidgets\qgraphicsitem.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpainterpath.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qmatrix.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpolygon.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qline.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpixmap.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpaintdevice.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qcolor.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qrgb.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qsharedpointer.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qsharedpointer_impl.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qimage.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qtransform.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpixelformat.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtWidgets\QGraphicsScene \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtWidgets\qgraphicsscene.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qbrush.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qfont.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpen.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\QPainter \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpainter.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qtextoption.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qfontinfo.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qfontmetrics.h \
+		..\spaceshooter2\constants.h \
+		..\spaceshooter2\itemspawninglogic.h \
+		..\spaceshooter2\item.h \
+		..\spaceshooter2\roundrestartlogic.h
+	C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/mkspecs/win32-msvc2013 -IC:/Users/void/Source/Qt2D-Shooter/src/spaceshooter2 -IC:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/include -IC:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/include/QtWidgets -IC:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/include/QtGui -IC:/CodingLibraries/Qt5/5.4/msvc2013_64_opengl/include/QtCore -I. ..\spaceshooter2\roundrestartlogic.h -o release\moc_roundrestartlogic.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -910,8 +1041,9 @@ release\main.obj: ..\spaceshooter2\main.cpp C:\CodingLibraries\Qt5\5.4\msvc2013_
 		..\spaceshooter2\shotstrategy.h \
 		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\QTime \
 		..\spaceshooter2\shot.h \
+		..\spaceshooter2\itemspawninglogic.h \
 		..\spaceshooter2\item.h \
-		..\spaceshooter2\itemspawninglogic.h
+		..\spaceshooter2\roundrestartlogic.h
 
 release\asteroidshooter.obj: ..\spaceshooter2\asteroidshooter.cpp ..\spaceshooter2\asteroidshooter.h \
 		..\spaceshooter2\asteroid.h \
@@ -1238,6 +1370,9 @@ release\shuttle.obj: ..\spaceshooter2\shuttle.cpp ..\spaceshooter2\shuttle.h \
 		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qfontinfo.h \
 		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qfontmetrics.h \
 		..\spaceshooter2\constants.h \
+		..\spaceshooter2\itemspawninglogic.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\QObject \
+		..\spaceshooter2\item.h \
 		..\spaceshooter2\shotsingle.h \
 		..\spaceshooter2\shotdouble.h
 
@@ -2182,11 +2317,134 @@ release\collidable.obj: ..\spaceshooter2\collidable.cpp ..\spaceshooter2\collida
 		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qfontmetrics.h \
 		..\spaceshooter2\constants.h
 
+release\roundrestartlogic.obj: ..\spaceshooter2\roundrestartlogic.cpp ..\spaceshooter2\roundrestartlogic.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\QObject \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qobject.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qobjectdefs.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qnamespace.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qglobal.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qconfig.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qfeatures.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qsystemdetection.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qprocessordetection.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qcompilerdetection.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qtypeinfo.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qtypetraits.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qsysinfo.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qlogging.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qflags.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qbasicatomic.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_bootstrap.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qgenericatomic.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_msvc.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_armv7.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_armv6.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_armv5.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_ia64.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_mips.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_x86.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_cxx11.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_gcc.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qatomic_unix.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qglobalstatic.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qmutex.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qnumeric.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qobjectdefs_impl.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qstring.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qchar.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qbytearray.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qrefcount.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qarraydata.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qstringbuilder.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qlist.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qalgorithms.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qiterator.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qbytearraylist.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qcoreevent.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qscopedpointer.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qmetatype.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qvarlengtharray.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qcontainerfwd.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qisenum.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qobject_impl.h \
+		..\spaceshooter2\shuttle.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\QKeyEvent \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qevent.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qwindowdefs.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qwindowdefs_win.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qregion.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qrect.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qmargins.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qsize.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qpoint.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qdatastream.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qiodevice.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qpair.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qkeysequence.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qvariant.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qmap.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qdebug.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qhash.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qtextstream.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qlocale.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qshareddata.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qvector.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qset.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qcontiguouscache.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qstringlist.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qregexp.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qstringmatcher.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qurl.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qurlquery.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qfile.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qfiledevice.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qvector2d.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qtouchdevice.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\QtMath \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qmath.h \
+		..\spaceshooter2\shotstrategy.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\QTime \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qdatetime.h \
+		..\spaceshooter2\shot.h \
+		..\spaceshooter2\linearmovingitems.h \
+		..\spaceshooter2\collidable.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtWidgets\QGraphicsItem \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtWidgets\qgraphicsitem.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpainterpath.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qmatrix.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpolygon.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qline.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpixmap.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpaintdevice.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qcolor.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qrgb.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qsharedpointer.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtCore\qsharedpointer_impl.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qimage.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qtransform.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpixelformat.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtWidgets\QGraphicsScene \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtWidgets\qgraphicsscene.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qbrush.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qfont.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpen.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\QPainter \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qpainter.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qtextoption.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qfontinfo.h \
+		C:\CodingLibraries\Qt5\5.4\msvc2013_64_opengl\include\QtGui\qfontmetrics.h \
+		..\spaceshooter2\constants.h \
+		..\spaceshooter2\itemspawninglogic.h \
+		..\spaceshooter2\item.h
+
 release\qrc_qml.obj: release\qrc_qml.cpp 
 
 release\moc_asteroidspawninglogic.obj: release\moc_asteroidspawninglogic.cpp 
 
 release\moc_itemspawninglogic.obj: release\moc_itemspawninglogic.cpp 
+
+release\moc_roundrestartlogic.obj: release\moc_roundrestartlogic.cpp 
 
 ####### Install
 

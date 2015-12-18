@@ -18,7 +18,8 @@ SOURCES += main.cpp \
     asteroidspawninglogic.cpp \
     item.cpp \
     itemspawninglogic.cpp \
-    collidable.cpp
+    collidable.cpp \
+    roundrestartlogic.cpp
 
 HEADERS += \
     asteroidshooter.h \
@@ -33,6 +34,7 @@ HEADERS += \
     item.h \
     itemspawninglogic.h \
     constants.h \
-    collidable.h
+    collidable.h \
+    roundrestartlogic.h
 
 RESOURCES += qml.qrc

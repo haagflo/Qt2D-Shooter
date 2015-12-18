@@ -33,23 +33,20 @@ void Collidable::deleteIfCollidesWith(int classtype)
     }
 }
 
-void Collidable::deleteIfCollidesWith(int classtype, int classtype2)
-{
-
-    //will be deleted one frame after collision..
-    //good enough? or should collision control of all items be done in main?
+void Collidable::deleteIfCollidesWith(int classtype, int classtype2) {
     if(life <= 0){
-        //speed = 0;
-        //do animation
-        scene()->removeItem(this);
+        deleteSelf();
     }
     if(!collidingItems().isEmpty()){
         for(int i = 0; i < collidingItems().size(); i++){
-            if(collidingItems()[i]->data(classTypeKey) == classtype
-                    | collidingItems()[i]->data(classTypeKey) == classtype2){
+            auto data = collidingItems()[i]->data(classTypeKey);
+            if(data == classtype || data  == classtype2){
                  life -= 1;
             }
         }
     }
 }
 
+void Collidable::deleteSelf() {
+    scene()->removeItem(this);
+}

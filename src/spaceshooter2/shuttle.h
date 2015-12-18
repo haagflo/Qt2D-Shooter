@@ -18,6 +18,7 @@ public:
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
                QWidget *widget) Q_DECL_OVERRIDE;
+    bool isAlive();
 
 protected:
     void advance(int step) Q_DECL_OVERRIDE;

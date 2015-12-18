@@ -7,6 +7,7 @@
 #include "qvector.h"
 #include "item.h"
 #include "itemspawninglogic.h"
+#include "roundrestartlogic.h"
 
 #define WINDOW_WIDTH 600
 #define WINDOW_HEIGHT 600
@@ -25,6 +26,7 @@ int main(int argc, char **argv) {
     //-----------------------------------------------------------
     ItemSpawningLogic itemSpawningLogic(&scene);
 
+
     //-----------------------------------------------------------
     //  SHUTTLE SETUP
     //-----------------------------------------------------------
@@ -33,6 +35,8 @@ int main(int argc, char **argv) {
     scene.addItem(shuttle);
     scene.setFocusItem(shuttle);
 
+
+    RoundRestartLogic roundRestartLogic(shuttle, &itemSpawningLogic, &scene);
     //-----------------------------------------------------------
     //  ASTEROID SPAWNING
     //-----------------------------------------------------------
@@ -61,6 +65,7 @@ int main(int argc, char **argv) {
     QTimer timer; //Game loop timer (30 FPS)
     QObject::connect(&timer, SIGNAL(timeout()), &scene, SLOT(advance()));
     QObject::connect(&timer, SIGNAL(timeout()), &asteroidSpawningLogic, SLOT(tick()));
+    QObject::connect(&timer, SIGNAL(timeout()), &roundRestartLogic, SLOT(tick()));
     timer.start(1000 / 33);
 
     QTimer timer2; //Item spawning
