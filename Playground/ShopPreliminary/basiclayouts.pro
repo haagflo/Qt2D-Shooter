@@ -9,6 +9,7 @@ target.path = /Arbeit/Projekte/_FHA_Qt_Vorlesung/git_25_11_2015/Qt2D-Shooter/Pla
 
 INSTALLS += target
 
-DISTFILES += \
-    items/life2.jpg \
-    items/weapons1.jpg
+DISTFILES +=
+
+RESOURCES += \
+    qml.qrc

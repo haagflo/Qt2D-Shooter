@@ -12,8 +12,7 @@ Dialog::Dialog()
     // image of extra items
     QLabel *myimage = new QLabel();
 
-    // TODO: relative path
-    QPixmap pix("C:/Arbeit/Projekte/_FHA_Qt_Vorlesung/git_25_11_2015/Qt2D-Shooter/Playground/ShopPreliminary/items/weapons1.jpg");
+    QPixmap pix(":/items/weapons1.jpg");
 
     // TODO: make the picture dependent of clicked button
     //  QPixmap pix(pic);
@@ -61,9 +60,9 @@ void Dialog::createHorizontalGroupBox()
     horizontalGroupBox->setLayout(layout);
 }
 
+// TODO: make the picture dependent of clicked button
 void Dialog::buttonWeaponClicked() {
-    // TODO: relative path
-    QPixmap pic("C:/Arbeit/Projekte/_FHA_Qt_Vorlesung/basiclayouts_lok/weapons1.jpg");
+    QPixmap pic(":/weapons1.jpg");
 }
 
 
