@@ -117,3 +117,8 @@ void Shuttle::itemCollisionHandling(){
         }
     }
 }
+
+
+bool Shuttle::isAlive() {
+    return life > 0;
+}

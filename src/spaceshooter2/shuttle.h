@@ -18,6 +18,7 @@ public:
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
                QWidget *widget) Q_DECL_OVERRIDE;
+    bool isAlive();
     void setKeyPressed(int key);
     void setKeyReleased(int key);
 

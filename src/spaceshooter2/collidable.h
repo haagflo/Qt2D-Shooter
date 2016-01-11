@@ -17,6 +17,8 @@ public:
 
     void deleteIfCollidesWith(int datatype);    
     void deleteIfCollidesWith(int datatype, int datatype2);
+    void deleteSelf();
+
 
 protected:
     qreal life = 1;

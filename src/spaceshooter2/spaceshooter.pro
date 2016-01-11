@@ -19,6 +19,8 @@ SOURCES += main.cpp \
     item.cpp \
     itemspawninglogic.cpp \
     collidable.cpp \
+    roundrestartlogic.cpp
+    collidable.cpp \
     androidrotationcontrol.cpp \
     androidshootcontrol.cpp \
     androidspeedcontrol.cpp
@@ -36,6 +38,8 @@ HEADERS += \
     item.h \
     itemspawninglogic.h \
     constants.h \
+    collidable.h \
+    roundrestartlogic.h\
     collidable.h \
     androidrotationcontrol.h \
     androidshootcontrol.h \

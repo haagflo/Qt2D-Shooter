@@ -7,6 +7,7 @@
 #include "qvector.h"
 #include "item.h"
 #include "itemspawninglogic.h"
+#include "roundrestartlogic.h"
 #include "androidshootcontrol.h"
 #include "androidspeedcontrol.h"
 #include "androidrotationcontrol.h"
@@ -31,6 +32,7 @@ int main(int argc, char **argv) {
     //-----------------------------------------------------------
     ItemSpawningLogic itemSpawningLogic(&scene);
 
+
     //-----------------------------------------------------------
     //  SHUTTLE SETUP
     //-----------------------------------------------------------
@@ -40,6 +42,7 @@ int main(int argc, char **argv) {
     scene.setFocusItem(shuttle);
 
 
+    RoundRestartLogic roundRestartLogic(shuttle, &itemSpawningLogic, &scene);
     //-----------------------------------------------------------
     //  ANDROID CONTROLS
     //-----------------------------------------------------------
@@ -85,6 +88,7 @@ int main(int argc, char **argv) {
     QTimer timer; //Game loop timer (30 FPS)
     QObject::connect(&timer, SIGNAL(timeout()), &scene, SLOT(advance()));
     QObject::connect(&timer, SIGNAL(timeout()), &asteroidSpawningLogic, SLOT(tick()));
+    QObject::connect(&timer, SIGNAL(timeout()), &roundRestartLogic, SLOT(tick()));
     timer.start(1000 / 33);
 
     QTimer timer2; //Item spawning
