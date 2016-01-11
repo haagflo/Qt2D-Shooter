@@ -1,4 +1,5 @@
 #include "roundrestartlogic.h"
+#include <typeinfo>
 
 RoundRestartLogic::RoundRestartLogic(Shuttle* shuttle, ItemSpawningLogic* itemSpawning, QGraphicsScene* scene) {
     this->shuttlePtr = shuttle;

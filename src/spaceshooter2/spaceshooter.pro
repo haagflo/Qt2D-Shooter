@@ -2,6 +2,7 @@ QT += core gui widgets
 
 TARGET = spaceshooter
 CONFIG += console
+CONFIG += c++11
 CONFIG -= app_bundle
 
 TEMPLATE = app
@@ -19,8 +20,7 @@ SOURCES += main.cpp \
     item.cpp \
     itemspawninglogic.cpp \
     collidable.cpp \
-    roundrestartlogic.cpp
-    collidable.cpp \
+    roundrestartlogic.cpp \
     androidrotationcontrol.cpp \
     androidshootcontrol.cpp \
     androidspeedcontrol.cpp
@@ -38,7 +38,6 @@ HEADERS += \
     item.h \
     itemspawninglogic.h \
     constants.h \
-    collidable.h \
     roundrestartlogic.h\
     collidable.h \
     androidrotationcontrol.h \

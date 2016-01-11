@@ -41,8 +41,9 @@ int main(int argc, char **argv) {
     scene.addItem(shuttle);
     scene.setFocusItem(shuttle);
 
-
     RoundRestartLogic roundRestartLogic(shuttle, &itemSpawningLogic, &scene);
+
+
     //-----------------------------------------------------------
     //  ANDROID CONTROLS
     //-----------------------------------------------------------
