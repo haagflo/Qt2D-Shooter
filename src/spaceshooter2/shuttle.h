@@ -18,11 +18,13 @@ public:
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
                QWidget *widget) Q_DECL_OVERRIDE;
+    void setKeyPressed(int key);
+    void setKeyReleased(int key);
 
 protected:
-    void advance(int step) Q_DECL_OVERRIDE;
     void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
     void keyReleaseEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
+    void advance(int step) Q_DECL_OVERRIDE;
     void itemCollisionHandling();
 
 private:

@@ -20,7 +20,6 @@ public:
 
 protected:
     qreal life = 1;
-
     int width;
     int height;
 

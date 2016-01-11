@@ -7,17 +7,23 @@
 #include "qvector.h"
 #include "item.h"
 #include "itemspawninglogic.h"
+#include "androidshootcontrol.h"
+#include "androidspeedcontrol.h"
+#include "androidrotationcontrol.h"
 
-#define WINDOW_WIDTH 600
-#define WINDOW_HEIGHT 600
+//#define WINDOW_WIDTH 600
+//#define WINDOW_HEIGHT 600
 
 int main(int argc, char **argv) {
 
     QApplication app(argc, argv);
 
+    int window_height = app.screens().at(0)->availableSize().height();
+    int window_width = app.screens().at(0)->availableSize().width();
+
     QGraphicsScene scene;
 
-    scene.setSceneRect(-WINDOW_WIDTH/2,-WINDOW_HEIGHT/2,WINDOW_WIDTH,WINDOW_HEIGHT);
+    scene.setSceneRect(-window_width/2,-window_height/2,window_width,window_height);
     scene.setItemIndexMethod(QGraphicsScene::NoIndex);
 
     //-----------------------------------------------------------
@@ -32,6 +38,24 @@ int main(int argc, char **argv) {
 
     scene.addItem(shuttle);
     scene.setFocusItem(shuttle);
+
+
+    //-----------------------------------------------------------
+    //  ANDROID CONTROLS
+    //-----------------------------------------------------------
+    if(QSysInfo::productType() == "android"){
+        AndroidShootControl *androidShootControl = new AndroidShootControl(shuttle);
+        scene.addItem(androidShootControl);
+        androidShootControl->setPos(400,120);
+
+        AndroidSpeedControl *androidSpeedControl = new AndroidSpeedControl(shuttle);
+        scene.addItem(androidSpeedControl);
+        androidSpeedControl->setPos(500,200);
+
+        AndroidRotationControl *androidRotationControl = new AndroidRotationControl(shuttle);
+        scene.addItem(androidRotationControl);
+        androidRotationControl->setPos(-500,200);
+    }
 
     //-----------------------------------------------------------
     //  ASTEROID SPAWNING
@@ -77,12 +101,11 @@ int main(int argc, char **argv) {
     QGraphicsView view(&scene);
     view.setRenderHint(QPainter::Antialiasing);
     view.setBackgroundBrush(QPixmap(":/images/backgroundSpace.png"));
-    view.setFixedSize(WINDOW_WIDTH,WINDOW_HEIGHT);
+    view.setFixedSize(window_width,window_height);
     view.setCacheMode(QGraphicsView::CacheBackground);
     view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
-
     view.setWindowTitle(QT_TRANSLATE_NOOP(QGraphicsView, "Qt2D-SpaceShooter"));
     view.show();
 

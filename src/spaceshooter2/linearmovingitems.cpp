@@ -1,4 +1,6 @@
 #include "linearmovingitems.h"
+#include <QApplication>
+#include <QScreen>
 
 //!  parent class for all linear moving objects
 /*!
@@ -27,8 +29,9 @@ void LinearMovingItems::advance(int step) {
 }
 
 void LinearMovingItems::deleteIfOutlier() {
-    if(pos().y() < -350 || pos().x() < -350 ||
-       pos().y() > 350 || pos().x() > 350 ){
+    QScreen *screen = QApplication::screens().at(0);
+    if(pos().y() < -screen->availableSize().height()*0.5 || pos().x() < -screen->availableSize().width()*0.5 ||
+       pos().y() > screen->availableSize().height()*0.5 || pos().x() > screen->availableSize().width()*0.5 ){
         scene()->removeItem(this);
     }
 }

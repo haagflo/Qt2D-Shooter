@@ -26,24 +26,37 @@ void Shuttle::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget
     painter->drawText(boundingRect(), Qt::AlignCenter, QString::number(life));
 }
 
+void Shuttle::setKeyPressed(int key)
+{
+    keys[key] = true;
+}
+
+void Shuttle::setKeyReleased(int key)
+{
+    keys[key] = false;
+}
+
+
 
 // solution to execute an uninterrupted keyboard input:
 void Shuttle::keyPressEvent(QKeyEvent *event){
 
-    // TODO: future use for special items
-    if(event->key() == Qt::Key_Plus){
+    // TODO: future use for special items (in current Version just for testing)
+    switch(event->key()){
+    case Qt::Key_Plus:
         shotstrategy->increaseReloadSpeed(10);
-    }
-    if(event->key() == Qt::Key_Minus){
+        break;
+    case Qt::Key_Minus:
         shotstrategy->increaseReloadSpeed(-10);
-    }
-    if(event->key() == Qt::Key_O){
+        break;
+    case Qt::Key_O:
         shotstrategy->increaseShotSpeed(2);
-    }
-    if(event->key() == Qt::Key_L){
+        break;
+    case Qt::Key_L:
         shotstrategy->increaseShotSpeed(-2);
+    default:
+        keys[event->key()] = true;
     }
-    keys[event->key()] = true;
 }
 
 void Shuttle::keyReleaseEvent(QKeyEvent *event){

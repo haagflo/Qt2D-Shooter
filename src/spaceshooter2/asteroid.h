@@ -16,7 +16,7 @@ public:
                QWidget *widget) Q_DECL_OVERRIDE;
 protected:
     void advance(int step) Q_DECL_OVERRIDE;
-
+    bool head;
 };
 
 #endif
